@@ -8,7 +8,7 @@
 <h1><%= "Login!" %>
 </h1>
 <br/>
-<form action="/nhom24_war_exploded/login" method="post">
+<form action="#" method="post">
 <div>
 username
 <input name="username" type="text"/></div>
