@@ -44,16 +44,8 @@ public class UserController extends HttpServlet {
         try {
             User user = userDao.getUserByUserName(username);
             if (user != null && user.getPassword().equals(password)){
-                out.println("<script type=\"text/javascript\">");
-                out.println("alert('Login success!');");
-                out.println("</script>");
-                out.println("<p>hello</p>");
                 resp.sendRedirect("/nhom24_war_exploded/home");
             } else {
-                out.println("<script type=\"text/javascript\">");
-                out.println("alert('User or password incorrect');");
-                out.println("location='index.jsp';");
-                out.println("</script>");
                 resp.sendRedirect("/nhom24_war_exploded/login");
             }
         } catch (SQLException | ClassNotFoundException throwables) {

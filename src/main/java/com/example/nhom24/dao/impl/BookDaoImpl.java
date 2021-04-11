@@ -43,9 +43,10 @@ public class BookDaoImpl implements BookDao {
     public void updateBook(Book book) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection con = DBConfig.getConnection();
-        String SQL_QUERY = "update book set name = '" + book.getName() + "', publisher = '" + book.getPublisher() + "' , price = " + book.getPrice();
+        String SQL_QUERY = "update book set name = '" + book.getName() + "', publisher = '" + book.getPublisher() + "' , price = " + book.getPrice() + " where id = " + book.getId() + ";";
         PreparedStatement ps = con.prepareStatement(SQL_QUERY);
         ps.executeUpdate();
+        System.out.println(SQL_QUERY);
     }
 
     @Override
@@ -55,6 +56,7 @@ public class BookDaoImpl implements BookDao {
         String SQL_QUERY = "DELETE from book where id = " + id;
         PreparedStatement ps = con.prepareStatement(SQL_QUERY);
         ps.executeUpdate();
+        System.out.println(SQL_QUERY);
     }
 
     private Book getBook(ResultSet rs) throws SQLException {

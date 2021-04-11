@@ -15,7 +15,7 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/login">Đăng xuất</a>
+<a href="/nhom24_war_exploded/login">Đăng xuất</a>
 <p> kết quả tìm kiếm với : ${search}</p>
 <c:forEach items="${books}" var="book">
     <div style="margin-left: 5px;">

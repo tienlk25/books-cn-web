@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/login">Đăng xuất</a>
+<a href="/nhom24_war_exploded/login">Đăng xuất</a>
 <form action="/nhom24_war_exploded/home" method="post">
 <p>Nhập tên sách để tìm kiếm:</p>
 <input name="book"/>

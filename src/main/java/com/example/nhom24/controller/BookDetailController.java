@@ -42,10 +42,19 @@ public class BookDetailController extends HttpServlet {
         String publisher = req.getParameter("publisher");
         Integer price = Integer.valueOf(req.getParameter("price"));
 //        book
+        try {
+            book.setName(name);
+            System.out.println(name);
+            book.setPublisher(publisher);
+            book.setPrice(price);
+            bookDao.updateBook(book);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        RequestDispatcher dp = req.getRequestDispatcher("home.jsp");
+        dp.forward(req, resp);
     }
 
-    public void deleteBook(Integer id) throws SQLException, ClassNotFoundException {
-        System.out.println("test");
-//        bookDao.delete(id);
-    }
 }
