@@ -7,4 +7,10 @@ import java.util.List;
 
 public interface BookDao {
     List<Book> findByName(String name) throws ClassNotFoundException, SQLException;
+
+    Book findById(Integer id) throws SQLException, ClassNotFoundException;
+
+    void updateBook(Book book) throws ClassNotFoundException, SQLException;
+
+    void delete(Integer id) throws ClassNotFoundException, SQLException;
 }

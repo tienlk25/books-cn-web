@@ -9,21 +9,22 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+<a href="/login">Đăng xuất</a>
 <p> kết quả tìm kiếm với : ${search}</p>
-
-<%  List<Book> books = (List<Book>) request.getAttribute("books");
-    PrintWriter output = response.getWriter();
-    for (int i = 0; i< books.size(); i ++) {
-        output.println("<p>"+ books.get(i).getId() + "</p>");
-        output.println("<p>"+ books.get(i).getName() + "</p>");
-        output.println("<p>"+ books.get(i).getPublisher() + "</p>");
-        output.println("<p>"+ books.get(i).getPrice() + "</p>");
-    } %>
-
+<c:forEach items="${books}" var="book">
+    <div style="margin-left: 5px;">
+    <p>Id:         ${book.id}</p>
+    <p>Name:       ${book.name}</p>
+    <p>Publisher:  ${book.publisher}</p>
+    <p>Price:      ${book.price}</p>
+    <a href="/nhom24_war_exploded/detail?bookId=${book.id}">xem chi tiêt</a>
+    </div>
+</c:forEach>
 </body>
 </html>

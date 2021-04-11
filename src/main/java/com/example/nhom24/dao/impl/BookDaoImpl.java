@@ -25,6 +25,38 @@ public class BookDaoImpl implements BookDao {
         return books;
     }
 
+    @Override
+    public Book findById(Integer id) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DBConfig.getConnection();
+        String SQL_QUERY = "select * from book where id = " + id;
+        PreparedStatement pst = con.prepareStatement(SQL_QUERY);
+        ResultSet rs = pst.executeQuery();
+        Book book = new Book();
+        while (rs.next()) {
+            book = getBook(rs);
+        }
+        return book;
+    }
+
+    @Override
+    public void updateBook(Book book) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DBConfig.getConnection();
+        String SQL_QUERY = "update book set name = '" + book.getName() + "', publisher = '" + book.getPublisher() + "' , price = " + book.getPrice();
+        PreparedStatement ps = con.prepareStatement(SQL_QUERY);
+        ps.executeUpdate();
+    }
+
+    @Override
+    public void delete(Integer id) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DBConfig.getConnection();
+        String SQL_QUERY = "DELETE from book where id = " + id;
+        PreparedStatement ps = con.prepareStatement(SQL_QUERY);
+        ps.executeUpdate();
+    }
+
     private Book getBook(ResultSet rs) throws SQLException {
         Book book = new Book();
         book.setName(rs.getString("name"));
