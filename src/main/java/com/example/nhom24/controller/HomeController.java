@@ -19,6 +19,7 @@ public class HomeController extends HttpServlet {
 
     private final BookDao bookDao;
 
+
     public HomeController() {
         bookDao = new BookDaoImpl();
     }
@@ -26,6 +27,7 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("home.jsp");
+
         dispatcher.forward(req, resp);
 
     }
@@ -35,12 +37,12 @@ public class HomeController extends HttpServlet {
         String bookName = req.getParameter("book");
         try {
             List<Book> books = bookDao.findByName(bookName);
-            if(books != null){
+
                 RequestDispatcher dp = req.getRequestDispatcher("result.jsp");
                 req.setAttribute("search", bookName);
                 req.setAttribute("books", books);
                 dp.forward(req, resp);
-            }
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException throwables) {
