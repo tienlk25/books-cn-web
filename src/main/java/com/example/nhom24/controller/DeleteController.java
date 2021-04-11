@@ -34,13 +34,13 @@ public class DeleteController extends HttpServlet {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        RequestDispatcher dispatcher = req.getRequestDispatcher("detail.jsp");
-        dispatcher.forward(req, resp);
+//        RequestDispatcher dispatcher = req.getRequestDispatcher("hom.jsp");
+        resp.sendRedirect("/nhom24_war_exploded/home");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
+        int id = Integer.parseInt(req.getParameter("bookId"));
         try {
             bookDao.delete(id);
         } catch (ClassNotFoundException e) {

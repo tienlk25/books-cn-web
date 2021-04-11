@@ -25,7 +25,7 @@
     <p>Price:      </p><input name="price" value="${book.price}" type="number">
         <button type="submit" >Cập nhật</button>
     </form>
-    <form action="/nhom24_war_exploded/delete" method="post">
+    <form action="/nhom24_war_exploded/delete?bookId=${book.id}" method="post">
         <button type="submit">Xoa</button>
     </form>
 </body>

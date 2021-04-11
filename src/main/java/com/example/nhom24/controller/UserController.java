@@ -46,7 +46,7 @@ public class UserController extends HttpServlet {
             if (user != null && user.getPassword().equals(password)){
                 resp.sendRedirect("/nhom24_war_exploded/home");
             } else {
-                resp.sendRedirect("/nhom24_war_exploded/login");
+//                resp.sendRedirect("/nhom24_war_exploded/login");
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
