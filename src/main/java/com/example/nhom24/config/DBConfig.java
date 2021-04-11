@@ -16,7 +16,7 @@ public class DBConfig {
         return connection;
     }
 
-    public static String url = "jdbc:mysql://localhost:3306/db_24";
+    public static String url = "jdbc:mysql://localhost:3306/db_29";
     public static String username = "root";
-    public static String password = "123456";
+    public static String password = "root";
 }
